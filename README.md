@@ -3,7 +3,7 @@
 Mi propuesta para solucionar la prueba planteada por Harbiz.
 
 
-Realizada en Typescript
+Solución realizada en Typescript y testing con Jest.
 
 ***
 Se trata de resolver un problema de asignación entre entrenadores y clientes, en la cual se desea asignar al entrenador un conjunto de clientes en base a las preferencias.
