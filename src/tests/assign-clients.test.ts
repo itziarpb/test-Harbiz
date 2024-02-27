@@ -1,6 +1,20 @@
 import {assignClients} from '../assign-clients'
 
 describe('Asignar Clientes', () => {
+    it('Asigna todos los clientes cuando hay suficientes entrenadores disponibles', () => {
+        const trainers = [
+            { name: 'Trainer1', reputation: 4.5, placesAvailable: 1 },
+            { name: 'Trainer2', reputation: 3.2, placesAvailable: 3 }
+        ];
+        const clients = [
+            { name: 'Client1', reputationImportance: 5 },
+            { name: 'Client2', reputationImportance: 8 },
+            { name: 'Client3', reputationImportance: 2 }
+        ];
+        const assigned = assignClients(trainers, clients);
+        expect(assigned.length).toBe(clients.length);
+    });
+
     it('Asigna clientes cuando hay plazas disponibles y si no, asigna el siguiente entrenador', () => {
         const trainers = [
             { name: 'Trainer1', reputation: 4.5, placesAvailable: 1 },
@@ -25,8 +39,6 @@ describe('Asignar Clientes', () => {
             { name: 'Client1', reputationImportance: 5 },
             { name: 'Client2', reputationImportance: 8 }
         ];
-
-        // Verifica que la función lance un error cuando no hay suficientes entrenadores disponibles
         expect(() => assignClients(trainers, clients)).toThrowError('Numero de entrenadores disponibles insuficientes');
     });
 });
